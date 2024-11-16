@@ -48,14 +48,24 @@ public class FrontController extends HttpServlet {
         HttpSession sesion = request.getSession();
         // Lista de vinilos de la tienda
         ArrayList<ViniloBean> vinilos = (ArrayList<ViniloBean>) sesion.getAttribute("vinilos");
-        String mensaje = "";
+        StringBuilder mensaje = new StringBuilder();
         String url = "";      
 
         int cantidad = Integer.parseInt(request.getParameter("cantidad"));
 
-        if (cantidad < 1) {
-            mensaje = "*La cantidad debe ser al menos 1";
-            request.setAttribute("mensaje", mensaje);
+        if (cantidad < 1 || request.getParameter("vinilos")==null) {
+            // Limpio previamente el mensaje
+            mensaje.setLength(0);
+            
+            if (cantidad < 1) {        
+                mensaje.append("*La cantidad debe ser al menos 1");
+                request.setAttribute("mensaje", mensaje.toString());
+            }else{
+                mensaje.append("*Por favor, elija un vinilo");
+                request.setAttribute("mensaje", mensaje.toString());
+            }
+            
+            
             url = "JSP/tiendaVista.jsp";
         } else {
 
@@ -67,7 +77,7 @@ public class FrontController extends HttpServlet {
                 // Añadimos el vinilo al carrito
                 Utils.aniadirProducto(vinilos, vinilo, mensaje);
                 sesion.setAttribute("vinilos", vinilos);
-                request.setAttribute("mensaje", mensaje);
+                request.setAttribute("mensaje", mensaje.toString());
 
                 StringBuilder valorCookie = new StringBuilder();
                 Utils.transformarArray(vinilos, valorCookie);

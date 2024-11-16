@@ -32,31 +32,31 @@
                             <c:if test="${param.vinilos eq 'Nirvana - Nevermind+35.50'}">selected</c:if>>Nirvana - Nevermind</option>
 
                             <option value="Maneskin - Ballo della vita+35.50" 
-                            <c:if test="${param.vinilos eq 'Maneskin - Ballo della vita+35.50'}">selected</c:if>>Maneskin - Ballo della vita</option>
+                            <c:if test="${param.vinilos eq 'Maneskin - Ballo della vita+30.00'}">selected</c:if>>Maneskin - Ballo della vita</option>
 
                             <option value="The Rolling Stones - Out of Our Heads+35.50" 
-                            <c:if test="${param.vinilos eq 'The Rolling Stones - Out of Our Heads+35.50'}">selected</c:if>>The Rolling Stones - Out of Our Heads</option>
+                            <c:if test="${param.vinilos eq 'The Rolling Stones - Out of Our Heads+45.00'}">selected</c:if>>The Rolling Stones - Out of Our Heads</option>
 
                             <option value="The Beatles - Please Please Me+35.50" 
-                            <c:if test="${param.vinilos eq 'The Beatles - Please Please Me+35.50'}">selected</c:if>>The Beatles - Please Please Me</option>
+                            <c:if test="${param.vinilos eq 'The Beatles - Please Please Me+60.00'}">selected</c:if>>The Beatles - Please Please Me</option>
 
                             <option value="Bob Dylan - Blonde on Blonde+35.50" 
-                            <c:if test="${param.vinilos eq 'Bob Dylan - Blonde on Blonde+35.50'}">selected</c:if>>Bob Dylan - Blonde on Blonde</option>
+                            <c:if test="${param.vinilos eq 'Bob Dylan - Blonde on Blonde+50.00'}">selected</c:if>>Bob Dylan - Blonde on Blonde</option>
 
                             <option value="Jimi Hendrix - Are You Experienced+35.50" 
-                            <c:if test="${param.vinilos eq 'Jimi Hendrix - Are You Experienced+35.50'}">selected</c:if>>Jimi Hendrix - Are You Experienced</option>
+                            <c:if test="${param.vinilos eq 'Jimi Hendrix - Are You Experienced+ 45.35'}">selected</c:if>>Jimi Hendrix - Are You Experienced</option>
 
                             <option value="Foo Fighters - The Colour and the Shape+35.50" 
-                            <c:if test="${param.vinilos eq 'Foo Fighters - The Colour and the Shape+35.50'}">selected</c:if>>Foo Fighters - The Colour and the Shape</option>
+                            <c:if test="${param.vinilos eq 'Foo Fighters - The Colour and the Shape+40.75'}">selected</c:if>>Foo Fighters - The Colour and the Shape</option>
 
                             <option value="Led Zeppelin - Physical Graffiti+35.50" 
                             <c:if test="${param eq 'Led Zeppelin - Physical Graffiti+35.50'}">selected</c:if>>Led Zeppelin - Physical Graffiti</option>
 
                             <option value="Pink Floyd - The Dark Side of the Moon+35.50" 
-                            <c:if test="${param eq 'Pink Floyd - The Dark Side of the Moon+35.50'}">selected</c:if>>Pink Floyd - The Dark Side of the Moon</option>
+                            <c:if test="${param eq 'Pink Floyd - The Dark Side of the Moon+37.50'}">selected</c:if>>Pink Floyd - The Dark Side of the Moon</option>
 
                             <option value="The Who - Tommy+35.50" 
-                            <c:if test="${param eq 'The Who - Tommy+35.50'}">selected</c:if>>The Who - Tommy</option>
+                            <c:if test="${param eq 'The Who - Tommy+42.90'}">selected</c:if>>The Who - Tommy</option>
 
                     </select>
                 </div>
@@ -72,10 +72,12 @@
                 <input type="submit" name="finalizar" value="Finalizar Compra"${sessionScope.vinilos.isEmpty() ? "disabled":""} />
             </div>
         </form>
-            
-            <div>
-                <p class="blanco">${sessionScope.valorCookie}</p>
-            </div>
+
+        <%--<div>
+            <p class="blanco">${sessionScope.valorCookie}</p>
+        </div> --%>
+
+           
         <c:import url="/INC/pie.inc"/>
     </body>
 </html>

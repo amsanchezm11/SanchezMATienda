@@ -5,21 +5,22 @@
     padding: 0;
 }
 
-body,
-html {
-    height: 100%;
-}
+
 
 .body-principal {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100%;
+    min-height: 100vh;
     background: url('../IMG/Portada.jpg') no-repeat center center fixed;
     background-size: cover;
 }
 
 .container-logo-principal {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     text-align: center;
     z-index: 2;
 }
@@ -43,18 +44,20 @@ html {
     font-family: 'Orbitron', sans-serif;
     text-align: center;
     padding: 10px 0;
+    z-index: 1;
 }
 
 .formulario {
     width: 400px;
     margin: 50px auto;
-    padding: 20px;
+    padding: 20px 30px;
     background-color: #ffffff;
     border-radius: 12px;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
     font-family: 'Arial', sans-serif;
     background-color: #f9f9f9;
     box-sizing: border-box;
+    animation: fadeIn 1s ease-out;
 }
 
 .formulario h1 {
@@ -76,20 +79,21 @@ html {
 }
 
 .formulario input[type="number"] {
-    width: 50%; 
-    padding: 12px; 
+    width: 50%;
+    padding: 12px;
     margin-bottom: 10px;
-    font-size: 16px; 
+    font-size: 16px;
     border: 1px solid #ccc;
     border-radius: 8px;
     background-color: #fff;
     color: #333;
-    box-sizing: border-box; 
+    box-sizing: border-box;
 }
 
 
 .formulario input[type="number"]:hover {
-    border-color: #007bff; 
+    display: inline-block;
+    border-color: #007bff;
 }
 
 
@@ -97,9 +101,9 @@ html {
     width: 100%;
     padding: 12px;
     font-size: 16px;
-    color: #fff; 
+    color: #fff;
     background-color: #000;
-    border: 2px solid #000; 
+    border: 2px solid #000;
     border-radius: 8px;
     cursor: pointer;
     margin-bottom: 10px;
@@ -108,32 +112,35 @@ html {
 
 
 .formulario input[type="submit"]:hover {
-    background-color: red; 
+    display: inline-block;
+    background-color: red;
 }
 
 
 .formulario input[type="submit"]:active {
-    background-color: #fff; 
-    color: #000; 
-    border-color: #000; 
+    background-color: #fff;
+    color: #000;
+    border-color: #000;
 }
 
 .formulario input[type="submit"]:disabled {
     background-color: lightgrey;
-    color: #000; 
-    border-color: gray; 
+    color: #000;
+    border-color: gray;
 }
 
 .formulario input[type="number"]:focus,
 .formulario select:focus {
-    border: 2px solid red; 
-    outline: none; 
+    display: inline-block;
+    border: 1px solid red;
+    outline: none;
 }
 
 .formulario input[type="number"]:hover,
 .formulario select:hover {
-    border: 1px solid red; 
-    outline: none; 
+    display: inline-block;
+    border: 1px solid red;
+    outline: none;
 }
 
 .formulario div {
@@ -148,9 +155,186 @@ html {
 .aviso{
     color: orange;
     margin-bottom: 20px;
+    font-family: 'Orbitron', sans-serif;
 }
 
 .blanco{
     color: orange;
     font-weight: bold;
+}
+
+.vinilo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image: url(../IMG/vinilo.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    animation: girarVinilo 5s linear infinite;
+    margin-top: 2rem;
+}
+
+.vinilo-pequenio {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image: url(../IMG/vinilo.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    animation: girarVinilo 5s linear infinite;
+    position: fixed; 
+    bottom: 25px;
+    left: 25px;
+    z-index: 3;
+}
+
+.titulo-carrito{
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.formulario-carrito {
+    width: max-content;
+    margin: 50px auto;
+    padding: 20px;
+    background-color: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    font-family: 'Arial', sans-serif;
+    background-color: #f9f9f9;
+    box-sizing: border-box;
+    margin-bottom: 50px;
+}
+
+.formulario-carrito h1 {
+    text-align: center;
+    font-size: 28px;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.formulario-carrito table {
+    width: 100%;
+    margin-bottom: 20px;
+    border-collapse: collapse;
+}
+
+.formulario-carrito th, .formulario-carrito td {
+    text-align: left;
+    padding: 12px;
+    border: 1px solid #ddd;
+}
+
+.formulario-carrito th {
+    background-color: #f2f2f2;
+   
+}
+
+.formulario-carrito td {
+    background-color: #fff;
+    white-space: nowrap; 
+}
+
+
+.formulario-carrito td button {
+    display: inline-block; 
+    margin-right: 10px; 
+}
+.boton-accion{
+    padding: 5px;
+    background-color: black;
+    color: white;
+    transition: background-color 0.3s, color 0.3s;
+    border: 2px solid #000;
+    border-radius: 8px;
+}
+
+boton-accion{
+    padding: 5px;
+    background-color: black;
+    color: white;
+    transition: background-color 0.3s, color 0.3s;
+    border: 2px solid #000;
+    border-radius: 8px;
+}
+
+.boton-accion:hover{
+    background-color: red;
+}
+
+.boton-accion:disabled{
+     background-color: lightgrey;
+    color: #000;
+    border-color: gray;
+}
+
+.formulario-carrito .boton-carro {
+   width: 100%;
+    padding: 12px;
+    font-size: 16px;
+    color: #fff;
+    background-color: #000;
+    border: 2px solid #000;
+    border-radius: 8px;
+    cursor: pointer;
+    margin-bottom: 10px;
+    transition: background-color 0.3s, border-color 0.3s, color 0.3s;
+ 
+}
+
+.formulario-carrito .boton-carro:hover {
+    background-color: red;
+    color: black;
+}
+
+.formulario-carrito .boton-carro:disabled {
+    background-color: #ccc;
+    color: #777;
+}
+
+.formulario-carrito .boton-carro i {
+    margin-right: 8px;
+}
+
+.formulario-carrito div {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.formulario-carrito .titulo-carrito {
+    text-align: center;
+    margin-bottom: 20px;
+    font-family: 'Orbitron', sans-serif;
+    font-size: 24px;
+    font-weight: 700;
+    color: #333;
+}
+
+
+/*---ANIMACIONES----*/
+
+@keyframes girarVinilo {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }

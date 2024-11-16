@@ -21,8 +21,14 @@
             <div class="titulo-tienda">
                 <h1>Beat & Surco</h1>
                 <h1>Music Shop</h1>
-            </div>                    
+            </div>
+            <div class="container-vinilo">
+                <div class="vinilo"></div>
+            </div>
         </div>
-        <c:import url="/INC/pie.inc"/>
+        <div class="footer">
+            <p>&copy; Beat &amp; Surco</p>
+        </div>
+        
     </body>
 </html>
