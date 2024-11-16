@@ -127,6 +127,7 @@
     background-color: lightgrey;
     color: #000;
     border-color: gray;
+    cursor: default;
 }
 
 .formulario input[type="number"]:focus,
@@ -199,7 +200,7 @@
     margin-bottom: 20px;
 }
 
-.formulario-carrito {
+.formulario-carrito, .formulario-resumen {
     width: max-content;
     margin: 50px auto;
     padding: 20px;
@@ -212,31 +213,31 @@
     margin-bottom: 50px;
 }
 
-.formulario-carrito h1 {
+.formulario-carrito h1, .formulario-resumen h1 {
     text-align: center;
     font-size: 28px;
     color: #333;
     margin-bottom: 20px;
 }
 
-.formulario-carrito table {
+.formulario-carrito table, .formulario-resumen table {
     width: 100%;
     margin-bottom: 20px;
     border-collapse: collapse;
 }
 
-.formulario-carrito th, .formulario-carrito td {
-    text-align: left;
+.formulario-carrito th, .formulario-carrito td, .formulario-resumen th, .formulario-resumen td {
+    text-align: center;
     padding: 12px;
     border: 1px solid #ddd;
 }
 
-.formulario-carrito th {
+.formulario-carrito th, .formulario-resumen th {
     background-color: #f2f2f2;
    
 }
 
-.formulario-carrito td {
+.formulario-carrito td, .formulario-resumen td {
     background-color: #fff;
     white-space: nowrap; 
 }
@@ -269,12 +270,13 @@ boton-accion{
 }
 
 .boton-accion:disabled{
-     background-color: lightgrey;
+    background-color: lightgrey;
     color: #000;
     border-color: gray;
+    cursor: default;
 }
 
-.formulario-carrito .boton-carro {
+.formulario-carrito .boton-carro,.formulario-resumen .boton-carro {
    width: 100%;
     padding: 12px;
     font-size: 16px;
@@ -288,7 +290,7 @@ boton-accion{
  
 }
 
-.formulario-carrito .boton-carro:hover {
+.formulario-carrito .boton-carro:hover, .formulario-resumen .boton-carro:hover {
     background-color: red;
     color: black;
 }
@@ -296,13 +298,14 @@ boton-accion{
 .formulario-carrito .boton-carro:disabled {
     background-color: #ccc;
     color: #777;
+    cursor: default;
 }
 
 .formulario-carrito .boton-carro i {
     margin-right: 8px;
 }
 
-.formulario-carrito div {
+.formulario-carrito div, .formulario-resumen div {
     text-align: center;
     margin-top: 20px;
 }

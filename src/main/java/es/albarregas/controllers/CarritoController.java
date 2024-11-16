@@ -32,21 +32,35 @@ public class CarritoController extends HttpServlet {
         String boton = request.getParameter("accion");
         // Url a donde vamos a dirigir al usuario(De primeras vacía)
         String url = "";
+        // Recuperamos la sesión
+        HttpSession sesion = request.getSession();
+        // Recuperamos la lista que tenemos almacenada en la sesión
+        ArrayList vinilos = (ArrayList) sesion.getAttribute("vinilos");
+
+        // Comprobamos si se ha pulsado el botón de Seguir Comprando
         if (request.getParameter("seguir") != null) {
             url = "/JSP/tiendaVista.jsp";
+        } else if (request.getParameter("vaciar") != null) {
+            
+                Utils.vaciarCarrito(vinilos);              
+                
+                sesion.setAttribute("vinilos", vinilos);
+                url = "/JSP/carritoVista.jsp";
+            
+
+        } else if (request.getParameter("comprar") != null) {
+            double totalCarrito = Utils.calcularTotal(vinilos);
+            sesion.setAttribute("totalCarrito", totalCarrito);
+            url = "/JSP/resumenVista.jsp";
         } else {
-           
-            // Recuperamos la sesión
-            HttpSession sesion = request.getSession();
-            // Recuperamos la lista que tenemos almacenada en la sesión
-            ArrayList vinilos = (ArrayList) sesion.getAttribute("vinilos");
+
             // Dividimos el value del boton ya que nos entrará un valor tipo --> "sumar+TituloVinilo"
             String[] partes = boton.split("\\+");
             // Almaceno la primera palabra --> Ej:"sumar"
             String accion = partes[0];
             // Almacenamos la segunda palabra --> Ej:"TituloVinilo"
             String elemento = partes[1];
-             // Compruebo que se haya pulsado el boton accion
+            // Compruebo que se haya pulsado el boton accion
             if (accion != null) {
                 /* Valoramos el resultado que hemos obtenido (sumar / restar / eliminar) y según el que nos entre 
             nuestro controlador llamará al método correspondiente */
@@ -59,14 +73,16 @@ public class CarritoController extends HttpServlet {
                         break;
                     case "eliminar":
                         Utils.eliminarProducto(elemento, vinilos);
+                        
                         break;
                 }
             }
-            
+
             // Cambiamos el valor de la ur para redirigir al usuario a la vista de carrito
             url = "/JSP/carritoVista.jsp";
             // Almacenamos de nuevo la lista de vinilos para que se apliquen los cambios de la acción que se haya realizado
             sesion.setAttribute("vinilos", vinilos);
+
         }
 
         request.getRequestDispatcher(url).forward(request, response);

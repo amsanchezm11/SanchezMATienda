@@ -102,14 +102,33 @@ public class Utils {
         //}
     }
 
-    public static void eliminarProducto(String titulo, ArrayList<ViniloBean> lista) {
+    public static void eliminarProducto(String titulo, ArrayList<ViniloBean> lista {
         Iterator<ViniloBean> iterator = lista.iterator();
         while (iterator.hasNext()) {
             ViniloBean vinilo = iterator.next();
             if (vinilo.getTitulo().equals(titulo)) {
-                iterator.remove();
+                iterator.remove();           
             }
         }
+         
+    }
+
+    public static void vaciarCarrito(ArrayList<ViniloBean> lista) {
+        if (lista != null) {
+            lista.clear();
+            mensaje.setLength(0);
+            mensaje.append("El carrito est&aacute; vac&iacute;o");
+        }
+    }
+
+    public static double calcularTotal(ArrayList<ViniloBean> lista) {
+        double total = 0;
+
+        for (ViniloBean vinilo : lista) {
+            total += (vinilo.getPrecio() * vinilo.getCantidad());
+        }
+
+        return total;
     }
 
 }

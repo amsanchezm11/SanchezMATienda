@@ -32,7 +32,7 @@ public class FrontController extends HttpServlet {
         // Almacenamos el valor de la busqueda de la cookie
         Cookie carrito = Utils.buscarCoockie(cookies);
         sesion.setAttribute("carrito", carrito);
-
+        // Creamo la lista de vinilos que nos servirá para almacenar el carrito del usuario
         ArrayList<ViniloBean> vinilos = new ArrayList<>();
         sesion.setAttribute("vinilos", vinilos);
 
@@ -48,23 +48,26 @@ public class FrontController extends HttpServlet {
         // Lista de vinilos de la tienda
         ArrayList<ViniloBean> vinilos = (ArrayList<ViniloBean>) sesion.getAttribute("vinilos");
         StringBuilder mensaje = new StringBuilder();
-        String url = "";      
+        String url = "";
+        int cantidad = 0;
+        try {
+            cantidad = Integer.parseInt(request.getParameter("cantidad"));
+        } catch (NumberFormatException e) {
+            mensaje.append("*La cantidad debe ser al menos 1");
+        }
 
-        int cantidad = Integer.parseInt(request.getParameter("cantidad"));
-
-        if (cantidad < 1 || request.getParameter("vinilos")==null) {
+        if (cantidad < 1 || request.getParameter("vinilos") == null) {
             // Limpiamos previamente el mensaje
             mensaje.setLength(0);
-            
-            if (cantidad < 1) {        
+            // En caso de que la cantidad sea <1 o null personaizamos el mensaje
+            if (cantidad < 1) {
                 mensaje.append("*La cantidad debe ser al menos 1");
                 request.setAttribute("mensaje", mensaje.toString());
-            }else{
+            } else {
                 mensaje.append("*Por favor, elija un vinilo");
                 request.setAttribute("mensaje", mensaje.toString());
             }
-            
-            
+
             url = "JSP/tiendaVista.jsp";
         } else {
             // Comprobamos si el botón aniadir ha sido pulsado
@@ -77,21 +80,24 @@ public class FrontController extends HttpServlet {
                 sesion.setAttribute("vinilos", vinilos);
                 request.setAttribute("mensaje", mensaje.toString());
 
-                
                 // Parte array cookie
                 StringBuilder valorCookie = new StringBuilder();
                 Utils.transformarArray(vinilos, valorCookie);
                 sesion.setAttribute("valorCookie", valorCookie);
-                
-               
+
                 url = "JSP/tiendaVista.jsp";
-            }   
+            }
         }
 
-        if(request.getParameter("verCarrito") != null){
+        if (request.getParameter("verCarrito") != null) {
             url = "JSP/carritoVista.jsp";
+        } else if (request.getParameter("volver") != null) {
+            url = ".";
+        } else if (request.getParameter("finalizar") != null) {
+            double totalCarrito = Utils.calcularTotal(vinilos);
+            sesion.setAttribute("totalCarrito", totalCarrito);
+            url = "/JSP/resumenVista.jsp";
         }
-        
         request.getRequestDispatcher(url).forward(request, response);
     }
 
