@@ -1,25 +1,10 @@
 package es.albarregas.beans;
 
-import java.util.Objects;
-
-/**
- *
- * @author alberto
- */
 public class ViniloBean {
 
     private String titulo;
     private double precio;
     private int cantidad;
-
-    public ViniloBean() {
-    }
-
-    public ViniloBean(String titulo, double precio) {
-        this.titulo = titulo;
-        this.precio = precio;
-        this.cantidad = 0;
-    }
 
     public String getTitulo() {
         return titulo;
@@ -45,7 +30,7 @@ public class ViniloBean {
         this.cantidad = cantidad;
     }
 
-
+    // Le añado al Bean un toString para así codificarlo a gusto con el patrón que quiero en la cookie
     @Override
     public String toString() {
          return titulo + '+' + precio + '+' + cantidad + ';';

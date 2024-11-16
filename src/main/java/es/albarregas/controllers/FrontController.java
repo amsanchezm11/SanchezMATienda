@@ -5,7 +5,6 @@ import es.albarregas.models.Utils;
 import java.io.IOException;
 import java.net.URLEncoder;
 import java.util.ArrayList;
-import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.Cookie;
@@ -30,7 +29,7 @@ public class FrontController extends HttpServlet {
 
         // Buscamos la cookie
         Cookie[] cookies = request.getCookies();
-        // Almaceno el valor de la busqueda de la cookie
+        // Almacenamos el valor de la busqueda de la cookie
         Cookie carrito = Utils.buscarCoockie(cookies);
         sesion.setAttribute("carrito", carrito);
 
@@ -54,7 +53,7 @@ public class FrontController extends HttpServlet {
         int cantidad = Integer.parseInt(request.getParameter("cantidad"));
 
         if (cantidad < 1 || request.getParameter("vinilos")==null) {
-            // Limpio previamente el mensaje
+            // Limpiamos previamente el mensaje
             mensaje.setLength(0);
             
             if (cantidad < 1) {        
@@ -68,20 +67,20 @@ public class FrontController extends HttpServlet {
             
             url = "JSP/tiendaVista.jsp";
         } else {
-
+            // Comprobamos si el botón aniadir ha sido pulsado
             if (request.getParameter("aniadir") != null) {
-
                 // Creamos el vinilo
                 ViniloBean vinilo = Utils.crearProducto(request.getParameter("vinilos"), request.getParameter("cantidad"));
-
                 // Añadimos el vinilo al carrito
                 Utils.aniadirProducto(vinilos, vinilo, mensaje);
+                // Añadimos el carrito en la sesión y el mensaje lo pasamos por petición
                 sesion.setAttribute("vinilos", vinilos);
                 request.setAttribute("mensaje", mensaje.toString());
 
+                
+                // Parte array cookie
                 StringBuilder valorCookie = new StringBuilder();
                 Utils.transformarArray(vinilos, valorCookie);
-
                 sesion.setAttribute("valorCookie", valorCookie);
                 
                

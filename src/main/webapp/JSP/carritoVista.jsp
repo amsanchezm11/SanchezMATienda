@@ -5,7 +5,8 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Carrito</title>
+        <title>Mi Carrito</title>
+        <link rel="icon" type="image/png" href="../${iconoTienda}">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
         <link rel="stylesheet" type="text/css" href="${estilo}" media="screen" />
         <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700&display=swap" rel="stylesheet">
@@ -26,7 +27,7 @@
                 <table>
                     <thead>
                     <th>Titulo</th>
-                    <th>Precio</th>
+                    <th>Precio Unitario</th>
                     <th>Cantidad</th>
                     <th class="th-acciones">Acciones</th>
                     </thead>
@@ -34,8 +35,8 @@
                         <c:set var="precioVinilo" value="${elemento.precio}" />
                         <tr>
                             <td>${elemento.titulo}</td>        
-                            <td><fmt:formatNumber type="currency" value="${precioVinilo}"/></td>
-                            <td>${elemento.cantidad}</td>
+                            <td class="numero"><fmt:formatNumber type="currency" value="${precioVinilo}"/></td>
+                            <td class="numero">${elemento.cantidad}</td>
                             <td>
                                 <button name="accion" type="submit" class="boton-accion" value="sumar+${elemento.titulo}"><i class="fa-solid fa-plus"></i></button>
                                 <button name="accion" type="submit" class="boton-accion" value="restar+${elemento.titulo}" ${elemento.cantidad==1? "disabled":""}><i class="fa-solid fa-minus"></i></button>

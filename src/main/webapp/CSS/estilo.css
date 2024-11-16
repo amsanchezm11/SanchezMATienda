@@ -316,6 +316,10 @@ boton-accion{
     color: #333;
 }
 
+table td.numero {
+    text-align: center;
+}
+
 
 /*---ANIMACIONES----*/
 

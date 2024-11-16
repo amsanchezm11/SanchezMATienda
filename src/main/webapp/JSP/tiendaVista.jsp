@@ -5,6 +5,7 @@
     <head>
         <c:import url="/INC/metas.inc"/>
         <title>Tienda</title>
+        <link rel="icon" type="image/png" href="../${iconoTienda}">
         <link rel="stylesheet" type="text/css" href="${estilo}" media="screen" />
         <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700&display=swap" rel="stylesheet">
     </head>
