@@ -159,6 +159,10 @@
     font-family: 'Orbitron', sans-serif;
 }
 
+.azul{
+    color: blue;
+}
+
 .blanco{
     color: orange;
     font-weight: bold;
@@ -200,7 +204,7 @@
     margin-bottom: 20px;
 }
 
-.formulario-carrito, .formulario-resumen {
+.formulario-carrito {
     width: max-content;
     margin: 50px auto;
     padding: 20px;
@@ -211,6 +215,20 @@
     background-color: #f9f9f9;
     box-sizing: border-box;
     margin-bottom: 50px;
+}
+
+.formulario-resumen {
+    width: max-content;
+    margin: 50px auto;
+    padding: 20px;
+    background-color: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    font-family: 'Arial', sans-serif;
+    background-color: #f9f9f9;
+    box-sizing: border-box;
+    margin-bottom: 50px;
+    animation: fadeIn 1s ease-out;
 }
 
 .formulario-carrito h1, .formulario-resumen h1 {

@@ -1,7 +1,7 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
-<c:set var="totalCarrito" value="${sessionScope.totalCarrito}" scope="page"/>
+<c:set var="totalCarrito" value="${requestScope.totalCarrito}" scope="page"/>
 <!DOCTYPE html>
 <html>
     <head>

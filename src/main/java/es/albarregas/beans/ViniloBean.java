@@ -6,6 +6,15 @@ public class ViniloBean {
     private double precio;
     private int cantidad;
 
+    public ViniloBean() {
+    }
+
+    public ViniloBean(String titulo, double precio, int cantidad) {
+        this.titulo = titulo;
+        this.precio = precio;
+        this.cantidad = cantidad;
+    }
+    
     public String getTitulo() {
         return titulo;
     }
@@ -33,7 +42,7 @@ public class ViniloBean {
     // Le añado al Bean un toString para así codificarlo a gusto con el patrón que quiero en la cookie
     @Override
     public String toString() {
-         return titulo + '+' + precio + '+' + cantidad + ';';
+         return titulo + '_' + precio + '_' + cantidad + '*';
     }
     
     
