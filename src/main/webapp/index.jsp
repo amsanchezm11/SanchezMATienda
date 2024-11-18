@@ -9,7 +9,7 @@
 <!DOCTYPE html>
 <html lang="es">
     <head>
-        <c:import url="/INC/metas.inc"/>
+         <c:import url="/INC/metas.inc"/>
         <meta http-equiv="refresh" content="3, url='FrontController'" />
         <title>Beat &amp; Surco</title>
         <link rel="icon" type="image/png" href="${iconoTienda}">
@@ -17,7 +17,7 @@
         <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700&display=swap" rel="stylesheet">
     </head>
     <body class="body-principal">
-        <c:import url="/INC/cabecera.inc"/>
+        
         <div class="container-logo-principal"> 
             <div class="titulo-tienda">
                 <h1>Beat & Surco</h1>
